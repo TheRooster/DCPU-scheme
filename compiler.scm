@@ -1,7 +1,10 @@
-(include "defines.scm")
-(include "utils.scm")
-(include "primitives.scm")
-(if standalone (include "standalone.scm")(include "linkable.scm"))
+
+
+(include "src/defines.scm")
+(include "src/utils.scm")
+(include "src/primitives.scm")
+(include "src/environment.scm")
+(if standalone (include "src/standalone.scm")(include "src/linkable.scm"))
 
 
 (define (emit-prim x si env)

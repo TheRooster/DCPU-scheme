@@ -1,3 +1,3 @@
 (include "compiler.scm")
 
-(compile '((< 1 2)))
+(compile '((putc (getc))))

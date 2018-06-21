@@ -46,6 +46,7 @@
   (print ":lem_init")
   (print "  SET A, 0")
   (print "  SET B, vram")
+  (print "  ADD B, 1")
   (print "  HWI I")
   (print "  SET [vram], 0")
   (print "  SET PC, hwinit_loop_end"))

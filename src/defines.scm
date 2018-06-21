@@ -2,10 +2,10 @@
 (define debug #f)
 
 ;compile a standalone executable, rather than a linkable one
-(define standalone #f)
+(define standalone #t)
 
 ;Compile with support for displays
-(define with-lem1802 #f)
+(define with-lem1802 #t)
 
 ;Compile with support for keyboard
 (define with-kb #t)
