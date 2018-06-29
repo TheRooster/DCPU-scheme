@@ -5,7 +5,8 @@
   (print "  SET PC, hwinit"))
 
 (define (emit-vtable x)
-  (print ""))
+  (print "")
+  '())
 
 (define (emit-preamble)
   (print ":freeList\n.dat 0x0000")
@@ -19,7 +20,7 @@
 (define (emit-end)
   (print ":end")
   (print "  SUB PC, 1")
-  (print ".org 0x7FFF")
+  (print ".org 0x8000")
   (print ":heap_begin")
   (emit-hwinit))
 
@@ -96,6 +97,7 @@
 
 (define (emit-putc)
   (print ":putc")
+  (print "  SHR Z, 8")
   (print "  SET A, [vram]")
   (print "  SET B, vram")
   (print "  ADD B, 1")
@@ -142,6 +144,7 @@
   (print "  ADD A, Z")
   (print "  SET Z, [freeList]")
   (print "  SET [freeList], A")
+  (print "  SHL Z, 1")
   (print "  SET PC, POP"))
 
 (define (call-malloc)
@@ -174,7 +177,7 @@
 (define (emit-load)
   (print ":load")
   (print "  SHR Z, 1")
-  (print "  ADD Z, 32768")
+  (print "  ADD Z, 0x8000")
   (print "  SET Y, [Z]")
   (print "  SET Z, [Z+1]")
   (print "  SET PC, POP"))
