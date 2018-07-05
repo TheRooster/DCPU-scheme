@@ -1,3 +1,43 @@
 (include "compiler.scm")
 
-(compile '((putc (getc))))
+(compile '(
+	(def putd (/. (x) (putc (itoa (+ 48 x)))))
+        
+	(def print (/. (x)(if (< x 10) (putd x)(begin (print (/ x 10))(putd (% x 10))))))
+
+	(def printl (/. (x)(begin (print x)(putc #\.))))
+	
+	(def fib (/. (x) (if (== x 1)
+			     0 
+			     (if (== x 2) 
+				 1 
+				 (+ (fib (- x 2)) (fib (- x 1)))))))
+	(begin 
+		(printl (fib 1))	
+		(printl (fib 2))	
+		(printl (fib 3))	
+		(printl (fib 4))	
+		(printl (fib 5))	
+		(printl (fib 6))	
+		(printl (fib 7))	
+		(printl (fib 8))	
+		(printl (fib 9))	
+		(printl (fib 10))	
+		(printl (fib 11))	
+		(printl (fib 12))	
+		(printl (fib 13))
+		(printl (fib 14))
+		(printl (fib 15))
+		(printl (fib 16))
+		(printl (fib 17))
+		(printl (fib 18))
+		(printl (fib 19))
+		(printl (fib 20))
+		(printl (fib 21))
+		(printl (fib 22))
+		(printl (fib 23))
+		(printl (fib 24))
+	)	
+))
+
+
